@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+:root {
+  --primary: #100028;
+  --secoundary: #1a083d;
+  --grey: #d1d7e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: var(--grey);
+  color: var(--primary);
+
+}
+
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: white;
+}
+
+.bg-secoundary {
+  background-color: var(--secoundary) !important;
+  color: #fff;
+
+}
+
+input::placeholder {
+  color: inherit;
+}
+
+a {
+  color: inherit !important;
+  text-decoration: none;
+  transition: all .5s ease;
+}
+
+p {
+  font-size: 18px;
+}
+
+.header {
+  background: url(../media/images/energy_banner.jpg) no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 60vh;
+  background-size: cover;
+  backdrop-filter: blur(4px);
+  background-position: bottom;
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, .4);
+  inset: 0;
+  z-index: 2;
+}
+
+/* .header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 3;
+  background-color: white;
+  clip-path: polygon(0 55%, 0% 100%, 100% 100%);
+} */
+
+
+.tricker-wraper {
+  &:nth-child(odd) {
+    animation: loop 60s -10s linear infinite;
+  }
+
+  &:nth-child(odd):hover {
+    animation-play-state: paused;
+  }
+
+  .news {
+    text-wrap: nowrap;
+  }
+
+
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.breaking-news {
+  .news {
+    background-color: white;
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+}
+
+.content {
+
+  /* .educational-material {
+ gap: 2%; 
+
+     >div {
+      width: calc(98%/2)
+    } 
+  } */
+
+  .item:hover .overlay {
+    transform: scale(1.1);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-size: cover !important;
+    transition: all .5s ease;
+    transform: scale(1);
+  }
+
+  .overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 1;
+  }
+
+  .hydrogen-energy .overlay {
+    background: url(../media/images/educational-material/Hydrogenenergy.jpg) no-repeat;
+  }
+
+  .Hydroelectric-adhesive .overlay {
+    background: url(../media/images/educational-material/Hydroelectric-energy.jpg) no-repeat;
+  }
+
+  .thermal-energy .overlay {
+    background: url(../media/images/educational-material/Thermal-energy.jpg) no-repeat;
+  }
+
+  .wind-details .overlay {
+    background: url(../media/images/educational-material/wind-detailed.jpg) no-repeat;
+  }
+
+  .link {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, .4);
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .latest-news {
+    .item {
+      border-bottom: 1px solid var(--grey);
+
+      h2,
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      p {
+        -webkit-line-clamp: 3;
+      }
+
+      a:hover {
+        color: #480eb9 !important;
+      }
+    }
+  }
+}
